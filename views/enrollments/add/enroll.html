@@ -1,0 +1,36 @@
+<div class="row" ng-controller="EnrollController as vm">
+  <div class="col-lg-12">
+    <div class="row">
+      <ol class="breadcrumb">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="enrollments">Enrollments</a></li>
+        <li class="active">New Enrollment</li>
+      </ol>
+    </div>
+    <!--Breadcrumbs-->
+    <div class="row">
+        <!--display alert message-->
+        <div class="alert alert-danger text-center" data-ng-if="vm.errorMessage">
+          <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{vm.errorMessage}}
+        </div>
+      <div class="col-md-8 col-md-offset-3">
+        <div id="statusButtons" class="text-center">
+          <a ui-sref-active="active" ui-sref=".pathway"><span>1</span> Pathway<br/>Selection</a>
+          <a ui-sref-active="active" ui-sref=".participant-personal-info"><span>2</span> Participant<br/>Information</a>
+          <!-- <a ui-sref-active="active" ui-sref=".participant-address"><span>3</span> Participant<br />Address</a>
+                    <a ui-sref-active="active" ui-sref=".participant-coordinator"><span>3</span> Participant<br />Coordinator</a>-->
+        </div>
+        <div>&nbsp;</div>
+        <form name="enrollForm">
+          <div id="form-views" ui-view autoscroll="false"></div>
+        </form>
+      </div>
+      <!--form column-->
+    </div>
+    <!--form row-->
+  </div>
+  <!--col-lg-12-->
+  <p class="clearfix" />
+</div>
+<p class="clearfix" />
+<p class="clearfix" />

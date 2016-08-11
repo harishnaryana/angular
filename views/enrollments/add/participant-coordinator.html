@@ -1,0 +1,72 @@
+﻿<div class="panel panel-primary" id="participantCoordinatorPanel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Participant Coordinator</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Assigned Coordinators</label>
+                    </div>
+                </div>
+                <div class="row" ng-hide="vm.assignedCoordinators.length > 0">
+                    <div class="col-sm-12">
+                        None
+                    </div>
+                </div>
+                <div class="row" ng-show="vm.assignedCoordinators.length > 0">
+                    <div class="col-sm-3"><label>Contact Order</label></div>
+                    <div class="col-sm-3"><label>Coordinator</label></div>
+                    <div class="col-sm-3"><label>Remove</label></div>
+                </div>
+                <div class="row" ng-show="vm.assignedCoordinators.length > 0">
+                    <div class="col-sm-12" as-sortable ng-model="vm.assignedCoordinators">
+                        <div class="row" ng-repeat="coordinator in vm.assignedCoordinators" as-sortable-item>
+                            <div as-sortable-item-handle>
+                                   <div class="col-sm-3 center">{{$index + 1}}</div>
+                                    <div class="col-sm-3">{{coordinator.lastName + ', ' + coordinator.firstName}}</div>
+                                    <div class="col-sm-2">
+                                        <a data-no-drag class="btn btn-xs"><span class="glyphicon glyphicon-remove" ng-click="vm.removeCoordinator(coordinator)"></span></a>
+                                    </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--#assigned coordinators-->
+        
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group has-feedback">
+                    <label>Add Coordinator</label>
+                    <select class="form-control" name="coordinatorList" ng-options="coordinator.lastName + ', ' + coordinator.firstName for coordinator in vm.coordinators | orderBy: ['lastName', 'firstName']" ng-model="vm.selectedCoordinator" ng-show="vm.coordinators.length > 0" autofocus>
+                        <option></option>
+                    </select><br />
+                    <input type="button" class="btn btn-sm btn-primary" value="Add" ng-click="vm.addCoordinator()" ng-show="vm.coordinators.length > 0"/>
+                    <div class="col-sm-12" ng-hide="vm.coordinators.length > 0">
+                        No coordiantors are available
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="form-group row">
+        <div class="col-xs-3 col-xs-offset-3">
+            <a ui-sref="enroll.participant-address" class="btn btn-info btn-block"><span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;&nbsp;Previous </a>
+        </div>
+        <div class="col-xs-3">
+            <input type="button" class="btn btn-success btn-block" value="Enroll" ng-click="vm.enroll()"/>
+        </div>
+        <div class="col-xs-1 col-xs-offset-1">
+            <a ui-sref="enrollments">Cancel</a>
+        </div>
+    </div>
+
+</div>

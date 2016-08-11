@@ -1,0 +1,87 @@
+<div class="panel panel-primary" id="participantAddressPanel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Participant Address</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group has-feedback">
+            <label for="participantAddressStreet" class="control-label">Street</label>
+            <input class="form-control" placeholder="Street" name="participantAddressStreet" ng-model="vm.participant.address.street" autofocus />
+        </div>
+        <div class="form-group has-feedback">
+            <label for="participantAddressCity" class="control-label">City</label>
+            <input class="form-control" placeholder="City" name="participanAddressCity" ng-model="vm.participant.address.city"/>
+        </div>
+        
+        <div class="form-group has-feedback">
+            <label for="participantAddressState" class="control-label">State</label>
+            <select class="form-control" name="participantAddressState" ng-model="vm.participant.address.stateAbbreviation">
+                <option value="" label="-- Please select a state --"></option>
+                <option value="AL" label="Alabama"></option>
+                <option value="AK" label="Alaska"></option>
+                <option value="AZ" label="Arizona"></option>
+                <option value="AR" label="Arkansas"></option>
+                <option value="CA" label="California"></option>
+                <option value="CO" label="Colorado"></option>
+                <option value="CT" label="Connecticut"></option>
+                <option value="DE" label="Delaware"></option>
+                <option value="FL" label="Florida"></option>
+                <option value="GA" label="Georgia"></option>
+                <option value="HI" label="Hawaii"></option>
+                <option value="ID" label="Idaho"></option>
+                <option value="IL" label="Illinois"></option>
+                <option value="IN" label="Indiana"></option>
+                <option value="IA" label="Iowa"></option>
+                <option value="KS" label="Kansas"></option>
+                <option value="KY" label="Kentucky"></option>
+                <option value="LA" label="Louisiana"></option>
+                <option value="ME" label="Maine"></option>
+                <option value="MD" label="Maryland"></option>
+                <option value="MA" label="Massachusetts"></option>
+                <option value="MI" label="Michigan"></option>
+                <option value="MN" label="Minnesota"></option>
+                <option value="MS" label="Mississippi"></option>
+                <option value="MO" label="Missouri"></option>
+                <option value="MT" label="Montana"></option>
+                <option value="NE" label="Nebraska"></option>
+                <option value="NV" label="Nevada"></option>
+                <option value="NH" label="New Hampshire"></option>
+                <option value="NJ" label="New Jersey"></option>
+                <option value="NM" label="New Mexico"></option>
+                <option value="NY" label="New York"></option>
+                <option value="NC" label="North Carolina"></option>
+                <option value="ND" label="North Dakota"></option>
+                <option value="OH" label="Ohio"></option>
+                <option value="OK" label="Oklahoma"></option>
+                <option value="OR" label="Oregon"></option>
+                <option value="PA" label="Pennsylvania"></option>
+                <option value="RI" label="Rhode Island"></option>
+                <option value="SC" label="South Carolina"></option>
+                <option value="SD" label="South Dakota"></option>
+                <option value="TN" label="Tennessee"></option>
+                <option value="TX" label="Texas"></option>
+                <option value="UT" label="Utah"></option>
+                <option value="VT" label="Vermont"></option>
+                <option value="VA" label="Virginia"></option>
+                <option value="WA" label="Washington"></option>
+                <option value="WV" label="West Virginia"></option>
+                <option value="WI" label="Wisconsin"></option>
+                <option value="WY" label="Wyoming"></option>
+            </select>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="participantAddressZipCode" class="control-label">Zip Code</label>
+            <input class="form-control" placeholder="XXXXX" name="participanAddressZipCode" ui-mask="99999" ng-model="vm.participant.address.zipCode" />
+        </div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="form-group row">
+        <div class="col-xs-3 col-xs-offset-3">
+            <a ui-sref="enroll.participant-personal-info" class="btn btn-info btn-block "><span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;&nbsp;Previous </a>
+        </div>
+        <div class="col-xs-3">
+            <input type="button" class="btn btn-success btn-block" value="Enroll" ng-click="vm.enroll()"/>
+        </div>
+    </div>
+
+</div>

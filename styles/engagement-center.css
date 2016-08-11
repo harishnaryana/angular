@@ -1,0 +1,76 @@
+/* numbered buttons */
+#statusButtons                 {  }
+#statusButtons a               { color:#00BC8C; display:inline-block; font-size:12px; margin-right:10px; text-align:center; text-transform:uppercase; }
+#statusButtons a:hover         { text-decoration:none; }
+
+/* we will style the span as the circled number */
+#statusButtons span            { background:#080808; display:block; height:30px; margin:0 auto 10px; padding-top:5px; width:30px; 
+    border-radius:50%; color: #FFF;}
+
+/* active buttons turn light green-blue*/
+#statusButtons a.active span   { background:#00BC8C; }
+#wrapper{min-height: 724px;}
+/* nav-bar change color*/
+.navbar-default{
+        background-image: linear-gradient(rgb(84, 180, 235), rgb(47, 164, 231) 60%, rgb(29, 156, 229));
+    border-color: #e7e7e7;
+    color: #fff;
+}
+
+
+.sidebar ul#side-menu li a.active{
+       background-image: linear-gradient(rgb(84, 180, 235), rgb(47, 164, 231) 60%, rgb(29, 156, 229));
+    border-color: #e7e7e7;
+    color: #fff;
+}
+
+div.right-user-name.navbar-right{    
+    margin-top: 6px;
+    padding-right: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    }
+.footer{
+/*background-image: linear-gradient(rgb(84, 180, 235), rgb(47, 164, 231) 60%, rgb(29, 156, 229));
+        color: #fff;*/
+    background-image: linear-gradient(#DEDEDE, #DEDEDE 60%, #DEDEDE);
+    color: BLACK;
+    height: 50px;
+}
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+#wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
+}
+#form-views {
+    height: 500px;
+    width: 520px;
+}
+.pointer{
+	cursor:pointer;
+}
+table#enrollmentSummary tbody th, table.dataTable tbody td{
+        padding: 0px;
+    padding-left: 25px;
+}
+table#enrollmentSummary tbody th, table.dataTable tbody td.patients-enrolled{
+     padding: 0px;
+    text-align: center;
+}
+table#enrollmentSummary thead th, table.dataTable thead td {
+    padding-left: 5px;
+}
+
+table#enrollmentSummary a{
+   cursor: pointer;
+    
+}.pointer{
+	cursor:pointer;
+}

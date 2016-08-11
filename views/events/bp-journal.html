@@ -1,0 +1,54 @@
+﻿<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="modal-header">
+            <h4>{{vm.viewMode + ' ' + vm.eventType}} Event</h4>
+        </div>
+        <div class="modal-body">
+            <div class="input-group" ng-show="vm.viewMode == 'Add'">
+                <div class="form-group has-feedback">
+                    <label for="startOn" class="control-label">Start On</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="date" class="form-control" datepicker-popup ng-model="vm.dt" is-open="vm.status.opened" min-date="vm.minDate" max-date="vm.maxDate" datepicker-options="vm.dateOptions" date-disabled="vm.disabled(date, mode)" ng-required="true" close-text="Close" id="startOn" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="vm.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-control" id="startTime">
+                                <option ng-repeat="time in vm.times" {{time}}>{{time}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <!--#Add new event-->
+            <div class="form-group" ng-show="vm.viewMode == 'Edit'">
+                <div class="input-group">
+                    <label>Start On:</label> {{vm.eventData.start | date: 'yyyy-MM-dd h:mm a'}}
+                </div>
+                <div class="input-group">
+                    <label>Parameters:</label>&nbsp;<span ng-show="vm.eventData.parameters == null || vm.eventData.parameters.length === 0">None</span>
+                </div>
+                <div class="input-group">
+                    <ul>
+                        <li ng-repeat="param in vm.eventData.parameters">
+                            <label>{{vm.getFriendlyParamName(param.name)}}</label>: {{param.value}}
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+            <!--#Edit event-->
+        </div>
+        <!--#modal-body-->
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </div>
+</div>

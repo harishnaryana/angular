@@ -1,0 +1,47 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Pathway</h3>
+    </div>
+    <!--panel-heading-->
+    <div class="panel-body">
+
+        <div class="form-group has-feedback">
+            <label for="pathwayList" class="control-label">Pathway</label>
+            <select class="form-control" name="pathwayList" ng-options="pathway.name as pathway.name for pathway in vm.pathways | orderBy: ['pathway.name']" ng-model="vm.enrollment.pathway" autofocus required>
+                <option value="">Please select a pathway</option>
+            </select>
+        </div>
+        <div ng-show="enrollForm.pathwayList.$dirty && enrollForm.pathwayList.$error.required">
+             <span class="error">Pathway is required</span>
+            </div>
+    <div class="row has-feedback">
+      <div class="col-md-8">
+        <label for="startOn" class="control-label">Start On</label> (optional)
+         <p class="input-group">
+              <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.fromDate" is-open="vm.status.fromOpened" min-date="minDate"datepicker-options="vm.dateOptions" ng-required="true" close-text="Close" show-button-bar="false"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="vm.fromDateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+      </div>
+    </div>
+    <div class="row has-feedback">
+      <div class="col-md-8">
+        <label for="endOn" class="control-label">End On</label> (optional)
+         <p class="input-group">
+              <input type="text" class="form-control" uib-datepicker-popup="{{vm.format}}" ng-model="vm.toDate" is-open="vm.status.toOpened" min-date="minvm.Date"  datepicker-options="dateOptions"  ng-required="true" close-text="Close" show-button-bar="false" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="vm.toDateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-xs-4 col-xs-offset-4">
+        <a ui-sref="enroll.participant-personal-info" ng-disabled="enrollForm.pathwayList.$error.required" class="btn btn-block btn-info">Next <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+    </div>
+</div>
+

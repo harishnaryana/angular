@@ -1,0 +1,84 @@
+<div class="row" ng-controller="ParticipantController as vm">
+    <div class="col-lg-12">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="/ec/#/enrollments">Enrollments</a></li>
+                <li class="active">Participants</li>
+            </ol>
+        </div>
+        <!-- End of breadcrumb -->
+        <!--<h4>Active status of participants</h4>-->
+        <div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>{{vm.participant.lastName + ', ' + vm.participant.firstName}} <button class="badge" ng-click="vm.toggleShowDetails()">{{vm.displayDetails === true ? "Hide Details" : "Show Details"}}</button></h4> 
+                </div>
+                <!-- panel-heading-->
+                <div class="panel-body">
+                    <div ng-show="vm.displayDetails" class="">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <strong>Name:</strong> {{vm.participant.firstName + ' ' + vm.participant.lastName}}
+                            </div>
+
+                            <div class="col-lg-3">
+                                <strong>Date Of Birth:</strong> {{vm.participant.dateOfBirth | date}}
+                            </div>
+                            <div class="col-lg-2 ">
+                                <strong>Last 4 SSN:</strong> {{vm.participant.ssnLastFour}}
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col-lg-4 ">
+                                    <strong>Address:</strong> {{vm.participant.address}}
+                                </div>
+                                <div class="col-lg-4">
+                                    <strong>Phone Number:</strong> {{vm.participant.phoneNumber | phoneNumber}}
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <label>Pathways:</label>
+                            <div class="input-group" ng-repeat="pathway in vm.participant.pathways">
+                                <input type="checkbox" value="{{pathway.name}}" checked/>&nbsp;{{pathway.name}}&nbsp;({{pathway.startOn | date}}&nbsp;-&nbsp;{{pathway.endOn | date}})
+                            </div>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                                <div class="input-group" style="width:100%;">
+                                    <h4 class="page-header">Add Event</h4>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input type="button" id="bpJournal" class="btn btn-primary" ng-click="vm.displayEvent('Add', 'BP Journal', null)" value="BP Journal" />
+                                </div>
+                        </div>
+                        <div class="col-lg-8">
+                            {{vm.alertMessage}}
+                            <div ui-calendar="vm.calendarConfig.calendar" ng-model="vm.calendarEvents" calendar="participantCalendar"></div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="input-group" style="width:100%;">
+                                <h4 class="page-header">Events for {{vm.selectedDate | date}}</h4>
+
+                            </div>
+                            <div class="input-group" ng-show="vm.eventsForSelectedDate.length > 0">
+                                <div ng-repeat="event in vm.eventsForSelectedDate | orderBy: ['start']" ng-click="vm.displayEvent('Edit', 'BP Journal', event)">
+                                    {{event.start | date : 'h:mm a'}} &nbsp;-&nbsp; {{event.title}}
+                                </div>
+                            </div>
+                            <div class="input-group" ng-show="vm.eventsForSelectedDate.length === 0">
+                                No Events Scheduled
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--participant panel-->
+        </div>
+        <!-- Template content-->
+    </div>
+</div>
